@@ -1,0 +1,18 @@
+- config:
+    name: "create course"
+    def: create_course()
+    vaeiables:
+        -
+    request: $default_request
+    output:
+        - course_id
+
+- test:
+    name: create online subject
+    api: create_online_subject()
+    #extract:
+        #- online_subject_id: content.data.id
+
+- test:
+    name: create course
+    api: create_new_course()

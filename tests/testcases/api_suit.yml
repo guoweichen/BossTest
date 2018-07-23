@@ -1,0 +1,20 @@
+- config:
+    name: create subject(test)
+    request: $default_request
+
+
+
+- test:
+    name: create course
+    suite: create_course()
+    output:
+        - content.data.id
+    #extract:
+       # - course_id: content.data.id
+- test:
+    name: create chapter
+    api: create_chapter($chapter_title)
+
+- test:
+    name: create section
+    api: create_section($section_title,$library_id)

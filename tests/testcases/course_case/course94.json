@@ -1,0 +1,65 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "variables": [
+],
+            "request": {
+                "base_url": "http://mall.test.xinpianchang.com/backend/edu",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36",
+					"X-User-Id": "1"
+                }
+			},
+			"parameters": [
+				{"course_id-source_type-source":"${P(course_id.csv)}"},{"user_ids":["10000031,10000039","100049,1000080"]}
+				
+			]
+            
+        }
+    },
+	{
+        "test": {
+            "name": "/course/$course_id/usercourse",
+            "request": {
+                "url": "/course/$course_id/usercourse",
+                "method": "post",
+				"json": {"user_ids":"$user_ids",
+					     "source_type":"$source_type",
+					     "source": "$source"}
+			},
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json; charset=utf-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.status",
+                        0
+                    ]
+                },
+				{
+                    "eq": [
+                        "content.msg",
+                        "OK"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.data.has",
+                        "$user_ids"
+						]
+                }
+            ]
+        }
+    }
+]

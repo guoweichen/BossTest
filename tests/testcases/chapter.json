@@ -1,0 +1,59 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "variables": [],
+            "request": {
+                "base_url": "http://mall.test.xinpianchang.com/backend/edu",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36",
+					"X-User-Id": "1"
+                }
+            },
+			"parameters": [
+				{"title": "${chapter_title()}"}]
+        }
+    },
+    {
+        "test": {
+            "name": "/backend/edu/chapter/0",
+            "request": {
+                "url": "/chapter/0",
+                "headers": {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                "method": "POST",
+                "json": {
+                    "title": "$title",
+                    "course_id": 84
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json; charset=utf-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.status",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "OK"
+                    ]
+                }
+            ]
+        }
+    }
+]

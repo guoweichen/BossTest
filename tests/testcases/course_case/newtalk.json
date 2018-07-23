@@ -1,0 +1,47 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "variables": [],
+            "request": {
+                "base_url": "http://mall.test.xinpianchang.com/backend/edu",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36",
+				"Content-Type": "application/json; charset=utf-8",
+				"X-User-Id": "1"
+                }
+            }
+        }
+    },
+    {
+        "test": {
+            "name": "/newtalk/0",
+            "request": {
+                "url": "/newtalk/0",
+                "method": "POST",
+                "json": "${newtalk_course()}"
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                
+                {
+                    "eq": [
+                        "content.status",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "OK"
+                    ]
+                }
+            ]
+        }
+    }
+]

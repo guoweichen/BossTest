@@ -1,0 +1,124 @@
+- api:
+    def: get_course()
+    request:
+        url: /subject/$course_id
+        method: GET
+    validata:
+        - eq: ["status_code", 200]
+            
+
+- api:
+    #新建自营课程
+    def: create_online_subject()
+    request:
+            method: POST
+            url: /subject/0
+            json: ${get_online_subject()}
+    extract:
+        - online_subject_id: content.data.id
+    validate:
+        -   eq:
+            - status_code
+            - 200
+- api: 
+    #新建一个json格式第三方课    
+    def: offline_course_json()
+    request:
+            method: POST
+            url: /subject/0
+            json: ${offline_course_json()}
+    #引用reponse数据，为后面接口调用做准备
+    extract:
+        - subjectid: content.data.id  
+          
+    validate:
+        -   eq:
+            - status_code
+            - 200
+    output:
+            subjectid
+    
+        
+- api:
+    #第三方课添加json数据
+    def: offline_json()
+    request:
+            method: POST
+            url: /subject/$subjectid
+            json: ${offline_json()}
+    validate:
+        -   eq:
+            - status_code
+            - 200
+            
+- api:
+    #课程详情
+    def: subject_desc()
+    request:
+            method: GET
+            url: /subject/$subjectid
+            
+    validate:
+        -   eq:
+            - status_code
+            - 200
+- api:
+    #创建班级
+    def: create_new_course()
+    request:
+            method: POST
+            url: /course/0
+            json: ${online_course_json($online_subject_id)}
+    extract:
+        - online_course_id: content.data.id  
+    validate:
+        -   eq:
+            - status_code
+            - 200
+        -   eq:
+            - content.msg
+            - OK
+
+# 新建一级目录
+- api:
+    def: create_chapter()
+
+    request:
+        method: POST
+        url:  /chapter/0
+        json:
+            title: $chapter_title
+            course_id: 84
+
+        
+    extract:
+        -   chapterid: content.data.id       
+    validate:
+        -   eq:
+            - status_code
+            - 200
+        -   eq:
+            - content.msg
+            - OK
+
+# 新建二级目录
+- api:
+    def: create_section()
+    request:
+            method: POST
+            url: /chapter/311/sections/0
+            json:
+              title: $section_title
+              type: 1
+              is_published: 1
+              library_id: $library_id
+    validate:
+        -   eq:
+            - status_code
+            - 200
+        -   eq:
+            - content.status
+            - 0
+        -   eq:
+            - content.msg
+            - OK

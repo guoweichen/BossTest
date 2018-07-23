@@ -1,0 +1,1107 @@
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> - TestReport</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0 auto;
+      width: 960px;
+    }
+    #summary, #details {
+      width: 960px;
+    }
+    #summary th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    #summary td {
+      background-color: lightblue;
+      text-align: center;
+      padding: 4px 8px;
+    }
+    #details th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    #details td {
+      background-color: lightblue;
+      padding: 5px 12px;
+    }
+    #details .detail {
+      background-color: lightgrey;
+      font-size: smaller;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    #details .success {
+      background-color: greenyellow;
+    }
+    #details .error {
+      background-color: red;
+    }
+    #details .failure {
+      background-color: salmon;
+    }
+    #details .skipped {
+      background-color: gray;
+    }
+
+    .button {
+      font-size: 1em;
+      padding: 6px;
+      width: 4em;
+      text-align: center;
+      background-color: #06d85f;
+      border-radius: 20px/50px;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+    }
+    a.button{
+      color: gray;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #2cffbd;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      width: 50%;
+      position: relative;
+      transition: all 3s ease-in-out;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+    .popup .close:hover {
+      color: #06d85f;
+    }
+    .popup .content {
+      max-height: 80%;
+      overflow: auto;
+      text-align: left;
+    }
+
+    @media screen and (max-width: 700px) {
+      .box {
+        width: 70%;
+      }
+      .popup {
+        width: 70%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Test Report: </h1>
+
+  <h2>Summary</h2>
+  <table id="summary">
+
+    <tr>
+      <th>START AT</th>
+      <td colspan="4">2018-07-19 14:32:39</td>
+    </tr>
+    <tr>
+      <th>DURATION</th>
+      <td colspan="4">1.239 seconds</td>
+    </tr>
+    <tr>
+      <th>PLATFORM</th>
+      <td>HttpRunner 1.4.5 </td>
+      <td>CPython 3.6.4 </td>
+      <td colspan="2">Windows-10-10.0.17134-SP0</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <th>SUCCESS</th>
+      <th>FAILED</th>
+      <th>ERROR</th>
+      <th>SKIPPED</th>
+      <!-- <th>ExpectedFailure</th>
+      <th>UnexpectedSuccess</th> -->
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <!-- <td>0</td>
+      <td>0</td> -->
+    </tr>
+  </table>
+
+  <h2>Details</h2>
+  <table id="details">
+    <tr>
+      <th>Status</th>
+      <th>Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+    
+      <tr id="record_1">
+        <th class="success" style="width:5em;">success</td>
+        <td>get_course</td>
+        <td style="text-align:center;width:6em;">220.42 ms</td>
+        <td class="detail">
+
+          <a class="button" href="#popup_log_1">log</a>
+          <div id="popup_log_1" class="overlay">
+            <div class="popup">
+              <h2>Request and Response data</h2>
+              <a class="close" href="#record_1">&times;</a>
+
+              <div class="content">
+                <h3>Request:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>url</th>
+                      <td>http://mall.test.xinpianchang.com/backend/edu/subject/94</td>
+                    </tr>
+                    <tr>
+                      <th>method</th>
+                      <td>GET</td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                        <div>
+                          <strong>user-agent</strong>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+                        </div>
+                        
+                        <div>
+                          <strong>Accept-Encoding</strong>: gzip, deflate
+                        </div>
+                        
+                        <div>
+                          <strong>Accept</strong>: */*
+                        </div>
+                        
+                        <div>
+                          <strong>Connection</strong>: keep-alive
+                        </div>
+                        
+                        <div>
+                          <strong>x-user-id</strong>: 1
+                        </div>
+                        
+                      </td>
+                    </tr>
+                    
+
+                  </table>
+                </div>
+
+                <h3>Response:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>status_code</th>
+                      <td>
+                        200
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                          
+                          <div>
+                            <strong>Server</strong>: nginx
+                          </div>
+                          
+                          <div>
+                            <strong>Date</strong>: Thu, 19 Jul 2018 06:32:39 GMT
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Type</strong>: application/json; charset=utf-8
+                          </div>
+                          
+                          <div>
+                            <strong>Transfer-Encoding</strong>: chunked
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>Vary</strong>: Accept-Encoding
+                          </div>
+                          
+                          <div>
+                            <strong>X-Powered-By</strong>: PHP/7.1.5
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Encoding</strong>: gzip
+                          </div>
+                          
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          <pre>{
+  "status": 0,
+  "msg": "OK",
+  "data": {
+    "id": 94,
+    "is_free": 0,
+    "is_onshelf": 1,
+    "title": "AE进阶：魔法特效案例教程test",
+    "goods_id": 257,
+    "type": 0,
+    "series_id": 0,
+    "supplier_id": 32,
+    "images": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/015b10debf76e65.jpeg",
+    "cover": "",
+    "brief": "四个经典影视特效片段，五大案例教学，实拍与后期特效相结合，教你轻松用AE制作魔法特",
+    "is_third_content": 0,
+    "url": "",
+    "sold_base": 0,
+    "show_sold_amount": 1,
+    "mark": "",
+    "profile": {
+      "title": "AE进阶：魔法特效案例教程test",
+      "producers": [
+        {
+          "name": "团队名称团队名称",
+          "logo": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/075b18d53f7dbfe.png",
+          "intro": "介绍介绍介绍"
+        }
+      ],
+      "desc": "四个经典影视特效片段，五大案例教学，实拍与后期特效相结合，教你轻松用AE制作魔法特",
+      "banner": [],
+      "attractive": {
+        "desc": "AE和PR的对接\nAE作为一款全球流行，使用广泛，综合能力强大的后期工具，只要你脑洞够大，就可以做出让人惊叹的作品。在这个PS已经普及的年代，大家越来越不能满足于静止图片的展示。更多人开始使用一些动态制作软件来制作属于自己的小作品。\n\n深入浅出的讲解 \n本课程一共5个案例，涉及《赌神》、《惊天魔盗团》、《奇异博士》、《海上牧云记》四部影视作品里的影视特效片段的重现，如扑克牌空中静止特效、静止雨滴特效、灵魂出窍特效、魔法阵、秘术世界特效。通过34节细致的制作步骤讲解，采用实拍和特效相结合的方式，让你更加了解电影和后期的配合程度，带你轻松成为视效小达人。\n\n拯救废片的思路\n另外由于拍摄的条件限制，教程里也会教一些拯救措施。拯救措施的技术难度不大，但是对大家的思路启发应该有一些帮助。特效的制作需要用到的AE综合性知识很多，但是相信大家学完这套课程，对于AE的特效制作有更深的理解。\n\n最完整的素材提供\n除了基础图片、声音素材提供之外，还将提供给大家半成品的视频素材以及扣好的动态人像等。\n\n软件版本：After Effects CC 2015\n\n插件信息：\n粒子插件Trapcode Particular\n调色插件Magic Bulletsuite\n光晕插件Optical Flares\nE3D插件",
+        "image": "",
+        "imageMobile": ""
+      },
+      "master": [],
+      "plan": [
+        {
+          "title": "课程安排标题1",
+          "content": "课程安排内容1"
+        }
+      ],
+      "tags": "",
+      "bannerInfo": {
+        "bannerImage": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/015b10def23b15f.jpeg",
+        "trailer": ""
+      },
+      "periods": 0,
+      "keywords": "",
+      "description": "",
+      "commonShareConfig": {
+        "weiboTitle": "",
+        "qzoneTitle": "",
+        "qzoneDescription": ""
+      },
+      "mobileShareConfig": {
+        "shareTitle": "",
+        "shareDesc": "",
+        "shareWeiboDesc": "",
+        "shareImg": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/015b10deba68d4e.jpeg"
+      },
+      "QA": [
+        {
+          "Q": "1111",
+          "A": "2222"
+        }
+      ],
+      "subTitle": "",
+      "copyright": "",
+      "tutors": [],
+      "material": [],
+      "custom": [],
+      "activity": [],
+      "testClass": [],
+      "sub_title": "",
+      "relatedCourses": "",
+      "ads": []
+    },
+    "is_valid": 1,
+    "update_time": "2018-07-06 10:56:03",
+    "free_zh": "收费",
+    "shelf_zh": "上架",
+    "supplier_info": {
+      "id": 32,
+      "name": "最伟大的提供方是谁&是我！balabal",
+      "avatar": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/05/315b0fecbbdc01c.png",
+      "brief": "钻石vip"
+    },
+    "shelf_start_time": 1527832432,
+    "type_zh": "在线课程",
+    "count_of_sku": 1,
+    "count_of_on_shelf": 1,
+    "addtime": 1527832258,
+    "tags": [
+      "特效",
+      "特技"
+    ],
+    "goods_image": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/015b10deba68d4e.jpeg"
+  }
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h3>Statistics:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                        <th>content_size(bytes)</th>
+                        <td>3476</td>
+                      </tr>
+                    <tr>
+                      <th>response_time(ms)</th>
+                      <td>220.42</td>
+                    </tr>
+                    <tr>
+                      <th>elapsed(ms)</th>
+                      <td>215.267</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+
+        </td>
+      </tr>
+    
+      <tr id="record_2">
+        <th class="success" style="width:5em;">success</td>
+        <td>create online subject</td>
+        <td style="text-align:center;width:6em;">408.25 ms</td>
+        <td class="detail">
+
+          <a class="button" href="#popup_log_2">log</a>
+          <div id="popup_log_2" class="overlay">
+            <div class="popup">
+              <h2>Request and Response data</h2>
+              <a class="close" href="#record_2">&times;</a>
+
+              <div class="content">
+                <h3>Request:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>url</th>
+                      <td>http://mall.test.xinpianchang.com/backend/edu/subject/0</td>
+                    </tr>
+                    <tr>
+                      <th>method</th>
+                      <td>POST</td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                        <div>
+                          <strong>user-agent</strong>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+                        </div>
+                        
+                        <div>
+                          <strong>Accept-Encoding</strong>: gzip, deflate
+                        </div>
+                        
+                        <div>
+                          <strong>Accept</strong>: */*
+                        </div>
+                        
+                        <div>
+                          <strong>Connection</strong>: keep-alive
+                        </div>
+                        
+                        <div>
+                          <strong>x-user-id</strong>: 1
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Length</strong>: 327
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Type</strong>: application/json
+                        </div>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th>body</th>
+                      <td>
+                          <pre>{"title": "\u81ea\u8425\u8bfe", "tags": ["\u6d4b\u8bd5", "\u63a5\u53e3", "\u6dfb\u52a0"], "type": 0, "brief": "", "mark": "", "is_free": 0, "supplier_id": "34", "images": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/135b208bb253e55.jpeg", "goods_image": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/06/135b208bb609454.jpeg"}</pre>
+                      </td>
+                    </tr>
+                    
+
+                  </table>
+                </div>
+
+                <h3>Response:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>status_code</th>
+                      <td>
+                        200
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                          
+                          <div>
+                            <strong>Server</strong>: nginx
+                          </div>
+                          
+                          <div>
+                            <strong>Date</strong>: Thu, 19 Jul 2018 06:32:39 GMT
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Type</strong>: application/json; charset=utf-8
+                          </div>
+                          
+                          <div>
+                            <strong>Transfer-Encoding</strong>: chunked
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>Vary</strong>: Accept-Encoding
+                          </div>
+                          
+                          <div>
+                            <strong>X-Powered-By</strong>: PHP/7.1.5
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Encoding</strong>: gzip
+                          </div>
+                          
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          <pre>{
+  "status": 0,
+  "msg": "OK",
+  "data": {
+    "id": 150
+  }
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h3>Statistics:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                        <th>content_size(bytes)</th>
+                        <td>41</td>
+                      </tr>
+                    <tr>
+                      <th>response_time(ms)</th>
+                      <td>408.25</td>
+                    </tr>
+                    <tr>
+                      <th>elapsed(ms)</th>
+                      <td>405.978</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+
+        </td>
+      </tr>
+    
+      <tr id="record_3">
+        <th class="error" style="width:5em;">error</td>
+        <td>create new course</td>
+        <td style="text-align:center;width:6em;">574.55 ms</td>
+        <td class="detail">
+
+          <a class="button" href="#popup_log_3">log</a>
+          <div id="popup_log_3" class="overlay">
+            <div class="popup">
+              <h2>Request and Response data</h2>
+              <a class="close" href="#record_3">&times;</a>
+
+              <div class="content">
+                <h3>Request:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>url</th>
+                      <td>http://mall.test.xinpianchang.com/backend/edu/course/0</td>
+                    </tr>
+                    <tr>
+                      <th>method</th>
+                      <td>POST</td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                        <div>
+                          <strong>user-agent</strong>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+                        </div>
+                        
+                        <div>
+                          <strong>Accept-Encoding</strong>: gzip, deflate
+                        </div>
+                        
+                        <div>
+                          <strong>Accept</strong>: */*
+                        </div>
+                        
+                        <div>
+                          <strong>Connection</strong>: keep-alive
+                        </div>
+                        
+                        <div>
+                          <strong>x-user-id</strong>: 1
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Length</strong>: 510
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Type</strong>: application/json
+                        </div>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th>body</th>
+                      <td>
+                          <pre>{"title": "\u63a5\u53e3\u65b0\u5efa\u73ed\u7ea7", "profile": {"notice": [{"type": "text", "content": "\u6d4b\u8bd5\u8fd9\u662f\u516c\u544a"}, {"type": "image", "content": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/07/175b4db5b7a3dbb.jpg"}]}, "subject_id": 150, "brief": "1\u5bf91\u6307\u5bfc | \u7ebf\u4e0a\u793e\u7fa4 | \u5728\u7ebf\u89c6\u9891\u8bfe | \u76f4\u64ad\u4e92\u52a8 | \u4f5c\u54c1\u70b9\u8bc4", "start_time": 1531819419.628, "end_time": 0, "is_onshelf": 0, "priceout": 1066, "copy_course_id": 0}</pre>
+                      </td>
+                    </tr>
+                    
+
+                  </table>
+                </div>
+
+                <h3>Response:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>status_code</th>
+                      <td>
+                        200
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                          
+                          <div>
+                            <strong>Server</strong>: nginx
+                          </div>
+                          
+                          <div>
+                            <strong>Date</strong>: Thu, 19 Jul 2018 06:32:40 GMT
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Type</strong>: application/json; charset=utf-8
+                          </div>
+                          
+                          <div>
+                            <strong>Transfer-Encoding</strong>: chunked
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>Vary</strong>: Accept-Encoding
+                          </div>
+                          
+                          <div>
+                            <strong>X-Powered-By</strong>: PHP/7.1.5
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Encoding</strong>: gzip
+                          </div>
+                          
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          <pre>{
+  "status": 0,
+  "msg": "OK",
+  "data": {
+    "id": 85
+  }
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h3>Statistics:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                        <th>content_size(bytes)</th>
+                        <td>40</td>
+                      </tr>
+                    <tr>
+                      <th>response_time(ms)</th>
+                      <td>574.55</td>
+                    </tr>
+                    <tr>
+                      <th>elapsed(ms)</th>
+                      <td>573.587</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+            <a class="button" href="#popup_attachment_3">traceback</a>
+            <div id="popup_attachment_3" class="overlay">
+              <div class="popup">
+                <h2>Traceback Message</h2>
+                <a class="close" href="#record_3">&times;</a>
+                <div class="content"><pre>Traceback (most recent call last):
+AssertionError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+httprunner.exception.ValidationError: 
+	check item name: content.msg;
+	check item value: OK (str);
+	comparator: equals;
+	expected value: ok (str).
+</pre></div>
+              </div>
+            </div>
+          
+
+        </td>
+      </tr>
+    
+      <tr id="record_4">
+        <th class="error" style="width:5em;">error</td>
+        <td>create chapter</td>
+        <td style="text-align:center;width:6em;">574.55 ms</td>
+        <td class="detail">
+
+          <a class="button" href="#popup_log_4">log</a>
+          <div id="popup_log_4" class="overlay">
+            <div class="popup">
+              <h2>Request and Response data</h2>
+              <a class="close" href="#record_4">&times;</a>
+
+              <div class="content">
+                <h3>Request:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>url</th>
+                      <td>http://mall.test.xinpianchang.com/backend/edu/course/0</td>
+                    </tr>
+                    <tr>
+                      <th>method</th>
+                      <td>POST</td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                        <div>
+                          <strong>user-agent</strong>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+                        </div>
+                        
+                        <div>
+                          <strong>Accept-Encoding</strong>: gzip, deflate
+                        </div>
+                        
+                        <div>
+                          <strong>Accept</strong>: */*
+                        </div>
+                        
+                        <div>
+                          <strong>Connection</strong>: keep-alive
+                        </div>
+                        
+                        <div>
+                          <strong>x-user-id</strong>: 1
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Length</strong>: 510
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Type</strong>: application/json
+                        </div>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th>body</th>
+                      <td>
+                          <pre>{"title": "\u63a5\u53e3\u65b0\u5efa\u73ed\u7ea7", "profile": {"notice": [{"type": "text", "content": "\u6d4b\u8bd5\u8fd9\u662f\u516c\u544a"}, {"type": "image", "content": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/07/175b4db5b7a3dbb.jpg"}]}, "subject_id": 150, "brief": "1\u5bf91\u6307\u5bfc | \u7ebf\u4e0a\u793e\u7fa4 | \u5728\u7ebf\u89c6\u9891\u8bfe | \u76f4\u64ad\u4e92\u52a8 | \u4f5c\u54c1\u70b9\u8bc4", "start_time": 1531819419.628, "end_time": 0, "is_onshelf": 0, "priceout": 1066, "copy_course_id": 0}</pre>
+                      </td>
+                    </tr>
+                    
+
+                  </table>
+                </div>
+
+                <h3>Response:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>status_code</th>
+                      <td>
+                        200
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                          
+                          <div>
+                            <strong>Server</strong>: nginx
+                          </div>
+                          
+                          <div>
+                            <strong>Date</strong>: Thu, 19 Jul 2018 06:32:40 GMT
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Type</strong>: application/json; charset=utf-8
+                          </div>
+                          
+                          <div>
+                            <strong>Transfer-Encoding</strong>: chunked
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>Vary</strong>: Accept-Encoding
+                          </div>
+                          
+                          <div>
+                            <strong>X-Powered-By</strong>: PHP/7.1.5
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Encoding</strong>: gzip
+                          </div>
+                          
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          <pre>{
+  "status": 0,
+  "msg": "OK",
+  "data": {
+    "id": 85
+  }
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h3>Statistics:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                        <th>content_size(bytes)</th>
+                        <td>40</td>
+                      </tr>
+                    <tr>
+                      <th>response_time(ms)</th>
+                      <td>574.55</td>
+                    </tr>
+                    <tr>
+                      <th>elapsed(ms)</th>
+                      <td>573.587</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+            <a class="button" href="#popup_attachment_4">traceback</a>
+            <div id="popup_attachment_4" class="overlay">
+              <div class="popup">
+                <h2>Traceback Message</h2>
+                <a class="close" href="#record_4">&times;</a>
+                <div class="content"><pre>Traceback (most recent call last):
+httprunner.exception.VariableNotFound: chapter_title not found in recursive upward path!
+</pre></div>
+              </div>
+            </div>
+          
+
+        </td>
+      </tr>
+    
+      <tr id="record_5">
+        <th class="error" style="width:5em;">error</td>
+        <td>create section</td>
+        <td style="text-align:center;width:6em;">574.55 ms</td>
+        <td class="detail">
+
+          <a class="button" href="#popup_log_5">log</a>
+          <div id="popup_log_5" class="overlay">
+            <div class="popup">
+              <h2>Request and Response data</h2>
+              <a class="close" href="#record_5">&times;</a>
+
+              <div class="content">
+                <h3>Request:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>url</th>
+                      <td>http://mall.test.xinpianchang.com/backend/edu/course/0</td>
+                    </tr>
+                    <tr>
+                      <th>method</th>
+                      <td>POST</td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                        <div>
+                          <strong>user-agent</strong>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+                        </div>
+                        
+                        <div>
+                          <strong>Accept-Encoding</strong>: gzip, deflate
+                        </div>
+                        
+                        <div>
+                          <strong>Accept</strong>: */*
+                        </div>
+                        
+                        <div>
+                          <strong>Connection</strong>: keep-alive
+                        </div>
+                        
+                        <div>
+                          <strong>x-user-id</strong>: 1
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Length</strong>: 510
+                        </div>
+                        
+                        <div>
+                          <strong>Content-Type</strong>: application/json
+                        </div>
+                        
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th>body</th>
+                      <td>
+                          <pre>{"title": "\u63a5\u53e3\u65b0\u5efa\u73ed\u7ea7", "profile": {"notice": [{"type": "text", "content": "\u6d4b\u8bd5\u8fd9\u662f\u516c\u544a"}, {"type": "image", "content": "https://oss-xpc0.xpccdn.com/Upload/edu/2018/07/175b4db5b7a3dbb.jpg"}]}, "subject_id": 150, "brief": "1\u5bf91\u6307\u5bfc | \u7ebf\u4e0a\u793e\u7fa4 | \u5728\u7ebf\u89c6\u9891\u8bfe | \u76f4\u64ad\u4e92\u52a8 | \u4f5c\u54c1\u70b9\u8bc4", "start_time": 1531819419.628, "end_time": 0, "is_onshelf": 0, "priceout": 1066, "copy_course_id": 0}</pre>
+                      </td>
+                    </tr>
+                    
+
+                  </table>
+                </div>
+
+                <h3>Response:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>status_code</th>
+                      <td>
+                        200
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                          
+                          <div>
+                            <strong>Server</strong>: nginx
+                          </div>
+                          
+                          <div>
+                            <strong>Date</strong>: Thu, 19 Jul 2018 06:32:40 GMT
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Type</strong>: application/json; charset=utf-8
+                          </div>
+                          
+                          <div>
+                            <strong>Transfer-Encoding</strong>: chunked
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>Vary</strong>: Accept-Encoding
+                          </div>
+                          
+                          <div>
+                            <strong>X-Powered-By</strong>: PHP/7.1.5
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Encoding</strong>: gzip
+                          </div>
+                          
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          <pre>{
+  "status": 0,
+  "msg": "OK",
+  "data": {
+    "id": 85
+  }
+}</pre>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h3>Statistics:</h3>
+                <div style="overflow: auto">
+                  <table>
+                    <tr>
+                        <th>content_size(bytes)</th>
+                        <td>40</td>
+                      </tr>
+                    <tr>
+                      <th>response_time(ms)</th>
+                      <td>574.55</td>
+                    </tr>
+                    <tr>
+                      <th>elapsed(ms)</th>
+                      <td>573.587</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          
+            <a class="button" href="#popup_attachment_5">traceback</a>
+            <div id="popup_attachment_5" class="overlay">
+              <div class="popup">
+                <h2>Traceback Message</h2>
+                <a class="close" href="#record_5">&times;</a>
+                <div class="content"><pre>Traceback (most recent call last):
+httprunner.exception.VariableNotFound: chapterid not found in recursive upward path!
+</pre></div>
+              </div>
+            </div>
+          
+
+        </td>
+      </tr>
+    
+  </table>
+</body>

@@ -1,0 +1,20 @@
+- config:
+    name: testset description
+    request:
+        base_url: http://mall.test.xinpianchang.com/backend/edu
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36
+            X-User-Id: '1'
+            Content-Type: application/json; charset=utf-8
+    parameters:
+
+        - title: ${section_title()}
+
+    variables:
+        - library_id: ${library_id()}
+
+
+
+- test:
+    name: create section
+    api: create_section()

@@ -1,0 +1,14 @@
+- config:
+    name: testset description
+    request: $default_request
+
+    parameters:
+        - chapter_title: ["测试小节001" , "测试小节002"]
+
+
+
+
+- test:
+    name: create chapter
+    api: create_chapter()
+
